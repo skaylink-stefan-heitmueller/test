@@ -16,4 +16,4 @@ jobs:
         env:
           DOCKER_DEFAULT_PLATFORM: linux/arm64
         run: |
-          docker run --rm -it alpine:latest sh -c "uname -a"
+          docker run --rm -i alpine:latest sh -c "uname -a"
