@@ -29,7 +29,7 @@ jobs:
         run: |
           curl -sfLO https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_linux_arm64.deb
           curl -sfLO https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_linux_amd64.deb
-      - uses: skaylink-stefan-heitmueller/create-apt-repo@71a385ad37de9c28e2f3aede805db82ed457a766
+      - uses: skaylink-stefan-heitmueller/create-apt-repo@89b03030a7b3be951bd0e2389bb14246371f4da6
         with:
           signing-key: ${{ secrets.SIGNING_KEY }}
           codename: jammy
