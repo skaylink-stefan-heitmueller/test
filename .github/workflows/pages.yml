@@ -36,11 +36,10 @@ jobs:
         run: |
           curl -sfLO https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_linux_arm64.deb
           curl -sfLO https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_linux_amd64.deb
-      - name: Create apt repo
-        env:
-          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
-          CODENAME: jammy
-        run: .github/repo.sh
+      - uses: https://github.com/skaylink-stefan-heitmueller/create-apt-repo@latest
+        with:
+          signing-key: ${{ secrets.SIGNING_KEY }}
+          codename: jammy
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
