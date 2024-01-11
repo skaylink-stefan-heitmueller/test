@@ -34,6 +34,7 @@ jobs:
           repo-name: caddy
           signing-key: ${{ secrets.SIGNING_KEY }}
           codename: jammy
+          architectures: amd64 arm64
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
