@@ -26,7 +26,6 @@ jobs:
         with:
           name: github-pages
           path: ./docs
-          if-no-files-found: error
   deploy:
     environment:
       name: github-pages
