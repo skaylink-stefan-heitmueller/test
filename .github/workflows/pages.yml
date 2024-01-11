@@ -29,7 +29,7 @@ jobs:
         run: |
           curl -sfLO https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_linux_arm64.deb
           curl -sfLO https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_linux_amd64.deb
-      - uses: skaylink-stefan-heitmueller/create-apt-repo@6680a623d542aae3e7df49b91e9bd5d1d6f42360
+      - uses: skaylink-stefan-heitmueller/create-apt-repo@12d8bf3074e8cec41749a72f103c09291e49ad90
         id: create-apt-repo
         with:
           repo-name: caddy
