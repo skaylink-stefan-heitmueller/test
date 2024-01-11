@@ -36,6 +36,14 @@ jobs:
           signing-key: ${{ secrets.SIGNING_KEY }}
           codename: jammy
           architectures: amd64 arm64
+      - name: Sanity checks
+        run: |
+          find ${{ steps.create-apt-repo.outputs.repodir }} -type f -links +1
+      - name: Fix permissions
+        run: |
+          chmod -c -R +rX ${{ steps.create-apt-repo.outputs.repodir }} | while read line; do
+          echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
