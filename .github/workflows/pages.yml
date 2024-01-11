@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: ${{ steps.create-apt-repo.outputs.tmpdir }}
+          path: ${{ steps.create-apt-repo.outputs.repodir }}
   deploy:
     environment:
       name: github-pages
