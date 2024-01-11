@@ -40,7 +40,9 @@ jobs:
           signing-key: ${{ secrets.SIGNING_KEY }}
           codename: jammy
           architectures: amd64 arm64
-          import-from-repo-url: deb [arch=amd64,arm64] https://skaylink-stefan-heitmueller.github.io/test/ jammy main
+          import-from-repo-url: |
+            deb-amd64 https://skaylink-stefan-heitmueller.github.io/test/ jammy main
+            deb-arm64 https://skaylink-stefan-heitmueller.github.io/test/ jammy main
       - name: Upload Pages artifact
         id: upload-pages
         uses: actions/upload-pages-artifact@v3
