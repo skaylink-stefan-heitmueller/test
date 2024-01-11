@@ -29,7 +29,8 @@ jobs:
         run: |
           curl -sfLO https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_linux_arm64.deb
           curl -sfLO https://github.com/caddyserver/caddy/releases/download/v2.7.6/caddy_2.7.6_linux_amd64.deb
-      - uses: skaylink-stefan-heitmueller/create-apt-repo@89b03030a7b3be951bd0e2389bb14246371f4da6
+      - uses: skaylink-stefan-heitmueller/create-apt-repo@330b96af978be7799e9a63f8f1a3e9c1ebe7b5ee
+        id: create-apt-repo
         with:
           repo-name: caddy
           signing-key: ${{ secrets.SIGNING_KEY }}
@@ -39,7 +40,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
-          path: ./repo
+          path: ${{ steps.create-apt-repo.outputs.tmpdir }}
   deploy:
     environment:
       name: github-pages
