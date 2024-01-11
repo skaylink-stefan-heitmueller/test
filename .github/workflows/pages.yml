@@ -41,7 +41,7 @@ jobs:
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
           CODENAME: jammy
         run: |
-          set -euo pipefail
+          set -eu
           codename="${CODENAME}"
           component="${COMPONENT:-main}"
           reprepro_basedir="reprepro -b ./.repo"

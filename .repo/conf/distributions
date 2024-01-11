@@ -1,0 +1,5 @@
+Codename: jammy
+Components: main
+Architectures: arm64 amd64
+SignWith: ##SIGNING_KEY_ID##
+Limit: 0
