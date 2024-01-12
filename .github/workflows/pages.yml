@@ -37,7 +37,7 @@ jobs:
           export patchlevel=${GITHUB_REF_NAME##*+}
           curl -sfLO https://github.com/caddyserver/caddy/releases/download/${version}/caddy_${version//v/}_linux_arm64.deb
           curl -sfLO https://github.com/caddyserver/caddy/releases/download/${version}/caddy_${version//v/}_linux_amd64.deb
-      - uses: skaylink-stefan-heitmueller/create-apt-repo@latest
+      - uses: morph027/apt-repo-action@main
         id: create-apt-repo
         with:
           repo-name: caddy
