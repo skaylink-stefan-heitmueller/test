@@ -74,7 +74,7 @@ jobs:
         run: |
           (
               echo '```bash'
-              echo 'curl -sfLo /etc/apt.trusted.gpg.d/${{ jobs.build.outputs.keyring }}.asc ${{ steps.deploy-pages.outputs.page_url }}/gpg.key'
+              echo 'curl -sfLo /etc/apt.trusted.gpg.d/${{ needs.build.outputs.keyring }}.asc ${{ steps.deploy-pages.outputs.page_url }}/gpg.key'
               echo 'echo "deb ${{ steps.deploy-pages.outputs.page_url }}/ ${{ env.CODENAME }} ${{ env.COMPONENTS }}" >/etc/apt/sources.list.d/${{ env.REPO_NAME }}.list'
               echo '```'
           )> ${GITHUB_STEP_SUMMARY}
