@@ -1,0 +1,28 @@
+---
+# yamllint disable rule:line-length
+name: aws-ec2-restart
+run-name: aws-ec2-restart-${{ github.event.inputs.uuid }}
+
+# yamllint disable rule:truthy
+on:
+  workflow_dispatch:
+    inputs:
+      callback:
+        required: true
+      uuid:
+        required: true
+      environment:
+        required: true
+      instance_id:
+        required: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: aws-ec2-restart ${{ github.event.inputs.environment }}-${{ github.event.inputs.instance_id }}
+        run: |
+          echo "restarting ${{ github.event.inputs.environment }}-${{ github.event.inputs.instance_id }}"
+      - name: callback
+        run: |
+          echo "sending callback to ${{ github.event.inputs.callback }}"
