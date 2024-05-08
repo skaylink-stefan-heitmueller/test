@@ -1,0 +1,18 @@
+---
+# yamllint disable rule:line-length
+name: webhook
+
+# yamllint disable rule:truthy
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - webhook
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: |
+          echo Test
