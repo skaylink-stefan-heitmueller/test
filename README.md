@@ -33,3 +33,30 @@ curl -f -d@payload -H "accept: application/vnd.github+json" -H "authorization: t
 ```bash
 curl -sf -H "accept: application/vnd.github+json" -H "authorization: token ${token}" "https://api.github.com/repos/skaylink-stefan-heitmueller/test/actions/runs?event=workflow_dispatch&created>2024-05-08T09:00:00" | jq '.workflow_runs[] | select(.display_title=="aws-ec2-restart-6d7e46b9-5099-4aa9-8cdf-28e39d826c55")'
 ```
+
+## future topics
+
+### more than 10 inputs
+
+-> use nested json
+
+```json
+{
+  "payload": {
+    "environment": "...",
+    "...": "..."
+  }
+}
+```
+
+```yaml
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        default: "{}"
+```
+
+### masking
+
+* https://dev.to/leading-edje/masking-input-parameters-in-github-actions-1ci
