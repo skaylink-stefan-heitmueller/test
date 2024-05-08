@@ -9,9 +9,6 @@ on:
       uuid:
         type: string
         required: true
-  repository_dispatch:
-    types:
-      - webhook
 
 jobs:
   run:
