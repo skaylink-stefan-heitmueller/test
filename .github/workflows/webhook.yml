@@ -5,6 +5,10 @@ name: webhook
 # yamllint disable rule:truthy
 on:
   workflow_dispatch:
+    inputs:
+      uuid:
+        type: string
+        required: true
   repository_dispatch:
     types:
       - webhook
@@ -13,6 +17,6 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: Test
+      - name: Webhook [${{ github.event.inputs.uuid }}]
         run: |
           echo Test
