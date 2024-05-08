@@ -1,6 +1,7 @@
 ---
 # yamllint disable rule:line-length
-name: webhook-${{ github.event.inputs.uuid }}
+name: webhook
+run-name: webhook-${{ github.event.inputs.uuid }}
 
 # yamllint disable rule:truthy
 on:
